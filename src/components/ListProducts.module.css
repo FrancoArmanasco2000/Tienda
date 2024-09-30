@@ -1,0 +1,91 @@
+.contenedor {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+
+.tituloArticulo {
+    padding: 10px;
+    max-height: 3em;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    color: white;
+}
+
+.precioArticulo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    color: white;
+    font-weight: bold;
+}
+
+.imagen {
+    max-height: 250px;
+    max-width: 250px;
+}
+
+.contenedorImagen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    width: 255px;
+    height: 255px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    cursor: pointer;
+}
+
+.contenedorContenido {
+    width: 255px;
+    height: 140px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    border-style: solid;
+    border-color: #333;
+    border-width: 1px;
+    border-top: none;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.comprar {
+    width: 65px;
+    height: 30px;
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 5px;
+    border: none;
+    background-color: rgb(38,98,217);
+    color: white;
+    cursor: pointer;
+}
+
+.agregar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 65px;
+    height: 30px;
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 5px;
+    border: none;
+    background-color: #239b56;
+    color: white;
+    cursor: pointer;
+}
