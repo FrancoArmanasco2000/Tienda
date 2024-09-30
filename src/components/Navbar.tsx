@@ -6,10 +6,11 @@ import { IoIosNotifications } from "react-icons/io";
 import { useState } from 'react';
 
 interface Props {
-    filtrar: (text: string) => void;
+    filtrar: (text: string) => void,
+    handleCarrito: () => void
 }
 
-export const Navbar = ({ filtrar }: Props) => {
+export const Navbar = ({ filtrar, handleCarrito }: Props) => {
     
     const [busqueda, setBusqueda] = useState('')
 
@@ -25,7 +26,7 @@ export const Navbar = ({ filtrar }: Props) => {
                 <button className={styles.lupa} onClick={() => filtrar(busqueda)}><FaSearch /></button>
             </div>
             <div className={styles.botonesExtra}>
-                <button className={styles.carrito}><FaCartShopping /></button>
+                <button className={styles.carrito} onClick={handleCarrito}><FaCartShopping /></button>
                 <button className={styles.carrito}><IoIosNotifications/></button>
                 <div className={styles.usuario}>Franco Armanasco <FaSortDown /></div>
             </div>

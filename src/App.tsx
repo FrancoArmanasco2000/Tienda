@@ -2,16 +2,27 @@ import styles from './App.module.css'
 import { Navbar } from './components/Navbar'
 import { ListProducts } from './components/ListProducts'
 import { useEffect, useState } from 'react'
+import { Carrito } from './components/Carrito'
 
 function App() {
 
   const [productos, setProductos] = useState<Producto[]>([])
   const [productosFiltrados, setProductosFiltrados] = useState<Producto[]>([])
-
+  const [mostrarCarrito, setMostrarCarrito] = useState(true)
+  const [carrito, setCarrito] = useState<Producto[]>([])
 
   const filtrarProductos = (text: string) => {
     const productosFiltrados = productos.filter(producto => producto.title.toLowerCase().includes(text.toLowerCase()))
     setProductosFiltrados(productosFiltrados)
+  }
+
+  const handleMostrarCarrito = () => {
+    setMostrarCarrito(!mostrarCarrito)
+  }
+
+  const agregarProductoAlCarrito = (producto: Producto) => {
+    const nuevoCarrito = [...carrito, producto]
+    setCarrito(nuevoCarrito)
   }
 
   useEffect(():void => {
@@ -25,8 +36,9 @@ function App() {
 
   return (
     <main className={styles.contenedor}>
-      <Navbar filtrar={filtrarProductos} />
-      <ListProducts productos={productosFiltrados} />
+      <Navbar filtrar={filtrarProductos} handleCarrito={handleMostrarCarrito}  />
+      <ListProducts productos={productosFiltrados} agregarAlCarrito={agregarProductoAlCarrito} />
+      <Carrito productos={carrito} mostrarCarrito={mostrarCarrito} />
     </main>
   )
 }
