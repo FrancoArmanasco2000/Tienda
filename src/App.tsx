@@ -8,7 +8,7 @@ function App() {
 
   const [productos, setProductos] = useState<Producto[]>([])
   const [productosFiltrados, setProductosFiltrados] = useState<Producto[]>([])
-  const [mostrarCarrito, setMostrarCarrito] = useState(true)
+  const [mostrarCarrito, setMostrarCarrito] = useState(false)
   const [carrito, setCarrito] = useState<Producto[]>([])
 
   const filtrarProductos = (text: string) => {
