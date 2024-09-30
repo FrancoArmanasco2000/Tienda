@@ -1,4 +1,5 @@
 .navbarContenedor {
+    position: fixed;
     width: 100%;
     height: 80px;
     border-style: solid;
@@ -9,6 +10,7 @@
     border-right: none;
     display: flex;
     color: white;
+    background-color: black;
 }
 
 .titulo{
