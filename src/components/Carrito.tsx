@@ -1,4 +1,3 @@
-import { style } from 'framer-motion/client'
 import styles from './Carrito.module.css'
 import { motion } from 'framer-motion'
 
