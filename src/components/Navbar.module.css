@@ -52,6 +52,20 @@
     color:rgb(38,98,217);
 }
 
+.cantidadEnElCarrito {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    bottom: 15px;
+    font-size: 15px;
+    background-color: red;
+    border-radius: 50%;
+    color: white;
+}
+
 .lupa {
     font-size: 1.575rem;
     color: white;

@@ -7,10 +7,11 @@ import { useState } from 'react';
 
 interface Props {
     filtrar: (text: string) => void,
-    handleCarrito: () => void
+    handleCarrito: () => void,
+    carrito: Producto[]
 }
 
-export const Navbar = ({ filtrar, handleCarrito }: Props) => {
+export const Navbar = ({ filtrar, handleCarrito, carrito }: Props) => {
     
     const [busqueda, setBusqueda] = useState('')
 
@@ -26,7 +27,10 @@ export const Navbar = ({ filtrar, handleCarrito }: Props) => {
                 <button className={styles.lupa} onClick={() => filtrar(busqueda)}><FaSearch /></button>
             </div>
             <div className={styles.botonesExtra}>
-                <button className={styles.carrito} onClick={handleCarrito}><FaCartShopping /></button>
+                <button className={styles.carrito} onClick={handleCarrito}>
+                    <FaCartShopping />
+                    <div className={styles.cantidadEnElCarrito}>{carrito.length}</div>
+                </button>
                 <button className={styles.carrito}><IoIosNotifications/></button>
                 <div className={styles.usuario}>Franco Armanasco <FaSortDown /></div>
             </div>

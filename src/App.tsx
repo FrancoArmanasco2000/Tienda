@@ -36,7 +36,7 @@ function App() {
 
   return (
     <main className={styles.contenedor}>
-      <Navbar filtrar={filtrarProductos} handleCarrito={handleMostrarCarrito}  />
+      <Navbar filtrar={filtrarProductos} handleCarrito={handleMostrarCarrito} carrito={carrito} />
       <ListProducts productos={productosFiltrados} agregarAlCarrito={agregarProductoAlCarrito} />
       <Carrito productos={carrito} mostrarCarrito={mostrarCarrito} />
     </main>
