@@ -10,3 +10,7 @@ interface Producto {
     description: string;
     image: string;
 }
+
+interface ProductoCarrito extends Producto {
+    cantidad: number;
+}

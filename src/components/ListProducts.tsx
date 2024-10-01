@@ -3,7 +3,7 @@ import { FaCartShopping } from "react-icons/fa6";
 
 interface Props {
     productos: Producto[];
-    agregarAlCarrito: (producto: Producto) => void;
+    agregarAlCarrito: (producto: ProductoCarrito) => void;
 }
 
 export const ListProducts = ({ productos , agregarAlCarrito }: Props) => {
@@ -22,7 +22,7 @@ export const ListProducts = ({ productos , agregarAlCarrito }: Props) => {
                                 <p className={styles.precioArticulo}>
                                     ${producto.price}
                                     <button className={styles.comprar}>Buy</button>
-                                    <button className={styles.agregar} onClick={() => agregarAlCarrito(producto)}>+<FaCartShopping /></button>
+                                    <button className={styles.agregar} onClick={() => agregarAlCarrito({ ...producto, cantidad: 1 })}>+<FaCartShopping /></button>
                                 </p>
                             </div>
                         </div>

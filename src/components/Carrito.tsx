@@ -1,18 +1,19 @@
 import styles from './Carrito.module.css'
 import { motion } from 'framer-motion'
+import { FaTrashAlt } from "react-icons/fa";
 
 interface Props {
-    productos: Producto[],
-    mostrarCarrito: boolean
+    productos: ProductoCarrito[],
+    mostrarCarrito: boolean,
+    eliminarProducto: (index:number) => void
 }
 
-export const Carrito = ({ productos, mostrarCarrito }: Props) => {
+export const Carrito = ({ productos, mostrarCarrito, eliminarProducto }: Props) => {
     
-
     const productosTotal = (() => {
         let total = 0
         productos.forEach(producto => {
-            total += producto.price
+            total += producto.price * producto.cantidad
         })
         return total
     })
@@ -31,15 +32,16 @@ export const Carrito = ({ productos, mostrarCarrito }: Props) => {
                             NO HAY PRODUCTOS EN EL CARRITO
                         </div>
                         :
-                    productos.map((producto, index) => {
+                    productos.map((producto,index) => {
                         return (    
                             <div key={index} className={styles.contenedorProducto}>
+                                <button className={styles.botonEliminar} onClick={() => eliminarProducto(producto.id)}><FaTrashAlt /></button>
                                 <div className={styles.contenedorImagen}>
                                     <img src={producto.image} className={styles.imagen} />
                                 </div>
                                 <div className={styles.informacion}>
                                     <h3 className={styles.titulo}>{producto.title}</h3>
-                                    <p className={styles.precio}>${producto.price}</p>
+                                    <p className={styles.precio}>${producto.price} X {producto.cantidad}</p>
                                 </div>
                             </div>
                             
@@ -50,7 +52,7 @@ export const Carrito = ({ productos, mostrarCarrito }: Props) => {
             {
                 productos.length > 0 &&
                 <div className={styles.contenedorPagar}>
-                    <p>${productosTotal()}</p>
+                    <p>${productosTotal().toFixed(2)}</p>
                     <button className={styles.botonPagar}>PAGAR</button>
                 </div>
             }

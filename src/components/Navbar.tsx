@@ -1,9 +1,8 @@
 import styles from './Navbar.module.css'
 import { FaCartShopping } from "react-icons/fa6";
-import { FaSearch } from "react-icons/fa";
-import { FaSortDown } from "react-icons/fa";
+import { FaSearch, FaSortDown } from "react-icons/fa";
 import { IoIosNotifications } from "react-icons/io";
-import { useState } from 'react';
+import { useBusqueda } from '../hooks/useBusqueda';
 
 interface Props {
     filtrar: (text: string) => void,
@@ -13,11 +12,7 @@ interface Props {
 
 export const Navbar = ({ filtrar, handleCarrito, carrito }: Props) => {
     
-    const [busqueda, setBusqueda] = useState('')
-
-    const handleChangeBusqueda = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setBusqueda(e.target.value)
-    }
+    const { busqueda, handleChangeBusqueda } = useBusqueda()
 
     return (
         <nav className={styles.navbarContenedor}>
